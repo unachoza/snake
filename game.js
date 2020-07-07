@@ -1,5 +1,5 @@
 let lastRenderTime = 0;
-const SNAKE_SPEED = 1;
+const SNAKE_SPEED = 3;
 const gameBoard = document.getElementById('game-board');
 
 //game loop function
@@ -23,13 +23,13 @@ const snakeBody = [
 ];
 
 const update = () => {
-  // getUserInputDirection();
+  const inputDirection = userInputDirection();
   for (let i = snakeBody.length - 2; i >= 0; i--) {
     //createing a duplicate snake moves fwd one
     snakeBody[i + 1] = { ...snakeBody[i] };
   }
-  snakeBody[0].x += 0;
-  snakeBody[0].y += 1;
+  snakeBody[0].x += inputDirection.x;
+  snakeBody[0].y += inputDirection.y;
 };
 
 const draw = (gameBoard) => {
