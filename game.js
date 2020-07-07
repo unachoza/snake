@@ -30,6 +30,7 @@ const update = () => {
   }
   snakeBody[0].x += inputDirection.x;
   snakeBody[0].y += inputDirection.y;
+  updateFood();
 };
 
 const draw = (gameBoard) => {
@@ -41,6 +42,7 @@ const draw = (gameBoard) => {
     snakeElement.classList.add('snake');
     gameBoard.appendChild(snakeElement);
   });
+  drawFood(gameBoard);
 };
 
 let inputDirection = { x: 0, y: 0 };
@@ -70,6 +72,17 @@ window.addEventListener('keydown', (e) => {
 const userInputDirection = () => {
   lastInputDirection = inputDirection;
   return inputDirection;
+};
+
+let food = { x: 0, y: 0 };
+const updateFood = () => {};
+
+const drawFood = (gameBoard) => {
+  const foodElement = document.createElement('div');
+  foodElement.style.gridRowStart = food.y;
+  foodElement.style.gridColumnStart = food.x;
+  foodElement.classList.add('food');
+  gameBoard.appendChild(foodElement);
 };
 
 window.requestAnimationFrame(main);
