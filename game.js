@@ -117,6 +117,7 @@ const checkIsSnakeEating = (position, snakebody) => {
 
 const expandSnake = (amount) => {
   newSegments += amount;
+  return growSnake();
 };
 
 const growSnake = () => {
@@ -125,6 +126,7 @@ const growSnake = () => {
   }
 
   newSegments = 0;
+  return snakeBody;
 };
 
 window.requestAnimationFrame(main);
