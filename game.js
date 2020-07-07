@@ -1,12 +1,19 @@
 let lastRenderTime = 0;
 const snakeBody = [{ x: 10, y: 11 }];
-const SNAKE_SPEED = 3;
+const SNAKE_SPEED = 5;
 const EXPANSION_RATE = 2;
+const GRID_SIZE = 21;
 const gameBoard = document.getElementById('game-board');
+let gameOver = false;
 let newSegments = 0;
+let snakeHead;
 
 //game loop function
 const main = (currentTime) => {
+  if (gameOver) {
+    alert('you lose');
+  }
+
   window.requestAnimationFrame(main);
   const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000;
   if (secondsSinceLastRender < 1 / SNAKE_SPEED) return;
@@ -19,6 +26,7 @@ const main = (currentTime) => {
 const update = () => {
   updateSnake();
   updateFood();
+  checkDidSnakeDie();
 };
 
 const draw = () => {
@@ -80,7 +88,7 @@ const userInputDirection = () => {
 };
 
 /////SNAKE EATS FOOD ////
-let food = { x: 1, y: 1 };
+let food = { x: 3, y: 3 };
 
 const drawFood = (gameBoard) => {
   const foodElement = document.createElement('div');
@@ -95,7 +103,7 @@ const updateFood = () => {
     console.log('eating');
     expandSnake(EXPANSION_RATE);
     food = { x: 1, y: 1 };
-    return updateFoodLocation(food, 21);
+    return updateFoodLocation(food, GRID_SIZE);
   }
 };
 const updateFoodLocation = (food, gameSize) => {
@@ -128,5 +136,17 @@ const growSnake = () => {
   newSegments = 0;
   return snakeBody;
 };
-
+/////////// Winning Logic ////////
+const checkDidSnakeDie = () => {
+  gameOver = outsideOfGride(getSnakeHeade()) || snakeCollidesWithItself();
+};
+const outsideOfGride = (position) => {
+  return position.x < 1 || position.x > GRID_SIZE || position.y < 1 || position.y > GRID_SIZE;
+};
+const getSnakeHeade = () => {
+  return (snakeHead = snakeBody[0]);
+};
+const snakeCollidesWithItself = () => {
+  checkIsSnakeEating(snakeHead, snakeBody);
+};
 window.requestAnimationFrame(main);
