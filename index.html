@@ -106,14 +106,23 @@
         background-color: greenyellow;
         margin-top: 10px;
       }
+      @keyframes popup {
+        0% {
+          transform: scale(0);
+        }
+        100% {
+          transform: scale(1.5);
+        }
+      }
     </style>
   </head>
   <body>
     <div id="start-popup" class="popup">
       <div class="popup__content">
-        <h1>SSSSSnake!</h1>
+        <h1>SSSnake!</h1>
         Just like you remember<br />
-        You know what to do<br />
+        Move the snake with arrow keys<br />
+        Press up arrow to start moving snake<br />
         <button id="start-button" class="playAgain">Play Game!</button>
       </div>
     </div>
