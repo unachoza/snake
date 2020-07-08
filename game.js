@@ -1,6 +1,9 @@
+//////USER MODIFY VARIABLES//////
+let SNAKE_SPEED = 5;
+/////////
+
 let lastRenderTime = 0;
 const snakeBody = [{ x: 10, y: 11 }];
-const SNAKE_SPEED = 5;
 const EXPANSION_RATE = 2;
 const GRID_SIZE = 21;
 const gameBoard = document.getElementById('game-board');
@@ -18,9 +21,7 @@ window.onload = function () {
 };
 //game loop function
 const main = (currentTime) => {
-  if (gameOver) {
-    alert('you lose');
-  }
+  if (gameOver) alert('you lose');
 
   window.requestAnimationFrame(main);
   const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000;
@@ -30,6 +31,7 @@ const main = (currentTime) => {
   update();
   draw(gameBoard);
 };
+////////game onboarding
 const showPopup = (element) => {
   element.classList.remove('hide');
   element.classList.add('popup-open');
@@ -41,11 +43,18 @@ const hidePopup = (element) => {
 document.querySelector('#start-button').addEventListener('click', () => {
   startGame();
 });
+document.querySelector('.faster-button').addEventListener('click', () => {
+  SNAKE_SPEED = SNAKE_SPEED += 1;
+  console.log('cliked faster button', SNAKE_SPEED);
+});
+document.querySelector('.food-button').addEventListener('click', () => {
+  console.log('cliked food button');
+});
 const startGame = () => {
   console.log('kets got');
   hidePopup(document.querySelector('#start-popup'));
 };
-
+///////create game
 const update = () => {
   updateSnake();
   updateFood();

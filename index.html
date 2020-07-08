@@ -106,6 +106,15 @@
         background-color: greenyellow;
         margin-top: 10px;
       }
+      .faster-button {
+        margin-bottom: 60px;
+        background-color: red;
+      }
+      .food-button {
+        margin-top: 60px;
+        margin-bottom: 60px;
+        background-color: purple;
+      }
       @keyframes popup {
         0% {
           transform: scale(0);
@@ -126,6 +135,11 @@
         <button id="start-button" class="playAgain">Play Game!</button>
       </div>
     </div>
+    <div class="buttons-container">
+      <button class="faster-button">Faster Snake!</button>
+      <button class="food-button">Change Food!</button>
+    </div>
+
     <div id="game-board"></div>
     <script src="game.js"></script>
   </body>
