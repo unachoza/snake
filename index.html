@@ -45,9 +45,78 @@
         background-color: hsl(50, 100%, 50%);
         border: 0.25vmin solid black;
       }
+      button {
+        position: absolute;
+        top: 680px;
+        left: 50px;
+        border-radius: 12px;
+        border: 2px solid;
+        padding: 18px;
+        background-color: orange;
+      }
+
+      button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+        transition: all 0.2s;
+      }
+      button::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+        transition: all 0.2s;
+      }
+
+      button:active {
+        outline: none;
+        transform: translateY(-1px);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+        transition: all 0.2s;
+      }
+      .popup__content {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        color: white;
+        font-size: 20px;
+        opacity: 1;
+      }
+      .popup {
+        position: absolute;
+        top: 30%;
+        left: 30%;
+        transform: translate(-50%, -50%);
+        height: 30vh;
+        width: 30%;
+        background-color: rgba(0, 0, 0, 0.8);
+        border: solid white 6px;
+      }
+
+      .popup-open {
+        opacity: 1;
+        animation: popup 3s forwards;
+      }
+      .hide {
+        display: none;
+      }
+      .playAgain {
+        position: static;
+        background-color: greenyellow;
+        margin-top: 10px;
+      }
     </style>
   </head>
   <body>
+    <div id="start-popup" class="popup">
+      <div class="popup__content">
+        <h1>SSSSSnake!</h1>
+        Just like you remember<br />
+        You know what to do<br />
+        <button id="start-button" class="playAgain">Play Game!</button>
+      </div>
+    </div>
     <div id="game-board"></div>
     <script src="game.js"></script>
   </body>

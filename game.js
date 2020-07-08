@@ -8,6 +8,14 @@ let gameOver = false;
 let newSegments = 0;
 let snakeHead;
 
+const addElement = (element, adding) => {
+  document.querySelector(element).classList.add(adding);
+};
+window.onload = function () {
+  addElement('#start-popup', 'hide');
+  showPopup(document.querySelector('#start-popup'));
+  // console.log(document.querySelector('#start-popup'));
+};
 //game loop function
 const main = (currentTime) => {
   if (gameOver) {
@@ -21,6 +29,21 @@ const main = (currentTime) => {
 
   update();
   draw(gameBoard);
+};
+const showPopup = (element) => {
+  element.classList.remove('hide');
+  element.classList.add('popup-open');
+};
+const hidePopup = (element) => {
+  element.classList.add('hide');
+  element.classList.remove('popup-open');
+};
+document.querySelector('#start-button').addEventListener('click', () => {
+  startGame();
+});
+const startGame = () => {
+  console.log('kets got');
+  hidePopup(document.querySelector('#start-popup'));
 };
 
 const update = () => {
@@ -118,7 +141,7 @@ const collisionDetection = (position1, position2) => {
 
 const checkIsSnakeEating = (position, snakebody) => {
   return snakebody.some((segment) => {
-    console.log(collisionDetection(segment, position));
+    // console.log(collisionDetection(segment, position));
     return collisionDetection(segment, position);
   });
 };
