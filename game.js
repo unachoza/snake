@@ -16,12 +16,17 @@ const addElement = (element, adding) => {
 };
 window.onload = function () {
   addElement('#start-popup', 'hide');
+  addElement('#end-popup', 'hide');
   showPopup(document.querySelector('#start-popup'));
   // console.log(document.querySelector('#start-popup'));
 };
 //game loop function
 const main = (currentTime) => {
-  if (gameOver) alert('you lose');
+  if (gameOver) {
+    console.log('game is overrrr', gameOver);
+    showPopup(document.querySelector('#end-popup'));
+    return (gameOver = false);
+  }
 
   window.requestAnimationFrame(main);
   const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000;
@@ -43,6 +48,10 @@ const hidePopup = (element) => {
 document.querySelector('#start-button').addEventListener('click', () => {
   startGame();
 });
+document.querySelector('#end-button').addEventListener('click', () => {
+  resetGame();
+});
+
 document.querySelector('.faster-button').addEventListener('click', () => {
   SNAKE_SPEED = SNAKE_SPEED += 1;
   console.log('cliked faster button', SNAKE_SPEED);
@@ -51,8 +60,13 @@ document.querySelector('.food-button').addEventListener('click', () => {
   console.log('cliked food button');
 });
 const startGame = () => {
-  console.log('kets got');
   hidePopup(document.querySelector('#start-popup'));
+};
+const resetGame = () => {
+  gameOver = false;
+  hidePopup(document.querySelector('#end-popup'));
+  document.querySelector('#end-popup').classList.remove('popup-open');
+  return (gameOver = false);
 };
 ///////create game
 const update = () => {

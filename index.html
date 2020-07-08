@@ -115,6 +115,11 @@
         margin-bottom: 60px;
         background-color: purple;
       }
+      #start-popup{
+      }
+      #end-popup{
+
+}
       @keyframes popup {
         0% {
           transform: scale(0);
@@ -141,6 +146,15 @@
     </div>
 
     <div id="game-board"></div>
+    <div id="end-popup" class="popup">
+      <div class="popup__content">
+        <h1>You Lose!</h1>
+        <button id="end-button" class="playAgain">Play Again!</button>
+      </div>
+
+    </div>
+   
+  </div>
     <script src="game.js"></script>
   </body>
 </html>
