@@ -1,5 +1,6 @@
 //////USER MODIFY VARIABLES//////
 let SNAKE_SPEED = 5;
+let foodElement;
 /////////
 
 let lastRenderTime = 0;
@@ -10,6 +11,7 @@ const gameBoard = document.getElementById('game-board');
 let gameOver = false;
 let newSegments = 0;
 let snakeHead;
+const apple = document.querySelector('.food-apple');
 
 const addElement = (element, adding) => {
   document.querySelector(element).classList.add(adding);
@@ -57,7 +59,10 @@ document.querySelector('.faster-button').addEventListener('click', () => {
   console.log('cliked faster button', SNAKE_SPEED);
 });
 document.querySelector('.food-button').addEventListener('click', () => {
-  console.log('cliked food button');
+  drawFood(gameBoard, 'food-apple');
+  console.log('cliked food button', foodElement, 'also', document.querySelector('.food-apple'));
+  document.querySelector('.foodElement').classList.remove('food-apple');
+  foodElement.classList.add('food-apple');
 });
 const startGame = () => {
   hidePopup(document.querySelector('#start-popup'));
@@ -78,7 +83,7 @@ const update = () => {
 const draw = () => {
   gameBoard.innerHTML = '';
   drawSnake(gameBoard);
-  drawFood(gameBoard);
+  drawFood(gameBoard, 'food-apple');
 };
 
 ////////SNAKE//////
@@ -136,11 +141,11 @@ const userInputDirection = () => {
 /////SNAKE EATS FOOD ////
 let food = { x: 3, y: 3 };
 
-const drawFood = (gameBoard) => {
-  const foodElement = document.createElement('div');
+const drawFood = (gameBoard, image) => {
+  foodElement = document.createElement('div');
   foodElement.style.gridRowStart = food.y;
   foodElement.style.gridColumnStart = food.x;
-  foodElement.classList.add('food');
+  foodElement.classList.add(image);
   gameBoard.appendChild(foodElement);
 };
 
