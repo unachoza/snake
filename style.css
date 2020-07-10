@@ -1,0 +1,107 @@
+@media only screen and (min-device-width: 300px) and (max-device-width: 850px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait and landscape) {
+  body {
+    /* background: url(https://res.cloudinary.com/dh41vh9dx/image/upload/v1545059996/Landscape-Mode.png) no-repeat center
+      center fixed; */
+    background-size: contain;
+    background-color: black;
+    background-size: 80%;
+  }
+  #start-popup {
+    opacity: 0;
+  }
+  #game-board {
+    opacity: 0;
+  }
+  .popup {
+    opacity: 0;
+  }
+  button {
+    opacity: 0;
+  }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+  body {
+    /* background: url(https://res.cloudinary.com/dh41vh9dx/image/upload/v1545059996/Landscape-Mode.png) no-repeat center
+      center fixed; */
+    background-size: contain;
+    background-color: black;
+    background-size: 80%;
+  }
+  #start-popup {
+    opacity: 0;
+  }
+  div#game-board {
+    opacity: 0;
+  }
+  .popup {
+    opacity: 0;
+  }
+  button {
+    opacity: 0;
+  }
+}
+@media (orientation: portrait) {
+  div#mobile-warning {
+    color: white;
+    font-size: 40px;
+    z-index: 800;
+    text-align: center;
+    width: 100vw;
+    margin: 0 auto;
+  }
+  body {
+    /* background: url(https://res.cloudinary.com/dh41vh9dx/image/upload/v1545059996/Landscape-Mode.png) no-repeat center
+      center fixed; */
+    background-size: contain;
+    background-color: black;
+    background-size: 80%;
+  }
+  #start-popup {
+    opacity: 0;
+  }
+  #game-board {
+    opacity: 0;
+  }
+  .popup {
+    opacity: 0;
+  }
+  button {
+    opacity: 0;
+  }
+}
+
+div#mobile-warning {
+  color: white;
+  font-size: 80px;
+  text-align: center;
+  margin: 0 auto;
+  width: 100vw;
+}
+@media (orientation: landscape) {
+  div#mobile-warning {
+    color: white;
+    font-size: 40px;
+    z-index: 800;
+    text-align: center;
+    width: 100vw;
+    margin: 0 auto;
+  }
+  body {
+    background-size: contain;
+    background-color: black;
+    background-size: 80%;
+  }
+  #start-popup {
+    opacity: 0;
+  }
+  #game-board {
+    opacity: 0;
+  }
+  .popup {
+    opacity: 0;
+  }
+  button {
+    opacity: 0;
+  }
+}
