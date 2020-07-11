@@ -59,10 +59,10 @@ document.querySelector('.faster-button').addEventListener('click', () => {
   console.log('cliked faster button', SNAKE_SPEED);
 });
 document.querySelector('.food-button').addEventListener('click', () => {
-  drawFood(gameBoard, 'snakeHead');
+  drawFood(gameBoard, 'food-apple');
   console.log('cliked food button', foodElement, 'also', document.querySelector('.snakeHead'));
-  document.querySelector('.foodElement').classList.remove('snakeHead');
-  foodElement.classList.add('snakeHead');
+  document.querySelector('.foodElement').classList.remove('food-apple');
+  foodElement.classList.add('food-apple');
 });
 const startGame = () => {
   hidePopup(document.querySelector('#start-popup'));
@@ -83,7 +83,7 @@ const update = () => {
 const draw = () => {
   gameBoard.innerHTML = '';
   drawSnake(gameBoard);
-  drawFood(gameBoard, 'snakeHead');
+  drawFood(gameBoard, 'food-apple');
 };
 
 ////////SNAKE//////
