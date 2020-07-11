@@ -39,4 +39,36 @@
   .popup {
     opacity: 0;
   }
+  .buttons-container {
+    opacity: 0;
+  }
+}
+@media only screen and (min-device-width: 300px) and (max-device-width: 812px) {
+  div#mobile-warning {
+    color: white;
+    font-size: 80px;
+    text-align: center;
+    margin: 0 auto;
+    width: 100vw;
+  }
+  button {
+    opacity: 0;
+  }
+  body {
+    background-size: contain;
+    background-color: black;
+    background-size: 80%;
+  }
+  #start-popup {
+    opacity: 0;
+  }
+  #game-board {
+    opacity: 0;
+  }
+  .popup {
+    opacity: 0;
+  }
+  .buttons-container {
+    opacity: 0;
+  }
 }
