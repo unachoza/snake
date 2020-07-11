@@ -11,7 +11,6 @@ const gameBoard = document.getElementById('game-board');
 let gameOver = false;
 let newSegments = 0;
 let snakeHead;
-const apple = document.querySelector('.snakeHead');
 
 const addElement = (element, adding) => {
   document.querySelector(element).classList.add(adding);
@@ -59,12 +58,11 @@ document.querySelector('.faster-button').addEventListener('click', () => {
   console.log('cliked faster button', SNAKE_SPEED);
 });
 document.querySelector('.food-button').addEventListener('click', () => {
+  foodElement.classList.remove('food-apple');
   changeFood(FOOD_OPTIONS[2], foodElement);
   console.log('cliked food button', foodElement);
-
-  foodElement.classList.remove('food-apple');
-  drawFood(gameBoard, FOOD_OPTIONS[2]);
-  foodElement.classList.add(FOOD_OPTIONS[2]);
+  drawFood(gameBoard, changeFood(FOOD_OPTIONS[2], foodElement));
+  // foodElement.classList.add(FOOD_OPTIONS[2]);
 });
 const startGame = () => {
   hidePopup(document.querySelector('#start-popup'));
@@ -155,6 +153,7 @@ const drawFood = (gameBoard, newFoodImage = FOOD_OPTIONS[0]) => {
 const changeFood = (newFoodImage, currentfood) => {
   console.log(newFoodImage, currentfood);
   currentfood.classList.add(newFoodImage);
+  return currentfood;
 };
 
 const updateFood = () => {
